@@ -1,0 +1,28 @@
+
+  <div class="container" abs-center>
+    <section id="content">
+      <form id="login-form" [formGroup]="profileForm" style="display: block;">
+        <h1>SOCIALBOOK</h1>
+
+        <div>
+          <input type="email" formControlName="email" class="form-control" placeholder="Username" required="" value="" id="username" />
+          <label *ngIf="!profileForm.get('email')?.valid && profileForm.get('email')?.touched" style="color: red">Requerido</label>
+        </div>
+        <div>
+          <input type="password" formControlName="password" class="form-control" placeholder="Password" required="" id="password" />
+          <label *ngIf="!profileForm.get('password')?.valid && profileForm.get('password')?.touched" style="color: red">{{ messagePassword }}</label>
+        </div>
+        <div>
+          <input type="submit" [disabled]="!profileForm.valid" (click)="validateLogin()" class="form-control btn btn-login" value="Log In" />
+
+        </div>
+        <div>
+          <a [routerLink]="['/forgot-password']" tabindex="5" class="forgot-password">Forgot Password?</a>
+          <a [routerLink]="['/register']" id="register-form-link">Register</a>
+        </div>
+      </form>
+    </section>
+  </div>
+
+
+
